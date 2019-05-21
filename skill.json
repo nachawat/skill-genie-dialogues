@@ -1,0 +1,35 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom",
+          "uri": "ask-custom-code-genious-dialogs"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "fr-FR": {
+          "name": "Le Génie des Dialogues",
+          "summary": "Exemple de Skill pour gérer différents types de dialogues",
+          "description": "Exemple de Skill pour gérer différents types de dialogues avec la fonctionnalité Dialog Management (Auto-Delegation, Delegate, Elicit)",
+          "examplePhrases": [
+            "Alexa, ouvre le génie des dialogue"
+          ],
+          "keywords": [
+            "dialogue",
+            "voyage",
+            "boisson"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    }
+  }
+}
