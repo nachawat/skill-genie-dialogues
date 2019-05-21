@@ -215,4 +215,4 @@ This will allow the Skill to either propose a dialog purely based on `Auto-Deleg
 
 > **Important**: You must successfully deploy the code before you can test it.
 
-### Next : [Test your slot](./06-test-orderintent.md)
+### Next : [Test](./06-test-orderintent.md)
