@@ -1,0 +1,426 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "le génie des dialogues",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "TravelIntent",
+                    "slots": [
+                        {
+                            "name": "destination",
+                            "type": "AMAZON.City",
+                            "samples": [
+                                "je vais à {destination} {date} {time}",
+                                "je vais à {destination} {date}"
+                            ]
+                        },
+                        {
+                            "name": "origin",
+                            "type": "AMAZON.City",
+                            "samples": [
+                                "je pars de {origin}",
+                                "ma ville de départ est {origin}",
+                                "je vais partir de {origin} {date}",
+                                "je pars de {origin} {date}"
+                            ]
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{date} {time} de {origin}",
+                                "{date} {time}",
+                                "je pars {date}"
+                            ]
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "je vais à {destination} {date} {time}",
+                        "je pars de {origin} pour aller à {destination}",
+                        "je vais à {destination}",
+                        "je veux voyager"
+                    ]
+                },
+                {
+                    "name": "OrderIntent",
+                    "slots": [
+                        {
+                            "name": "drink",
+                            "type": "Drink_Type",
+                            "samples": [
+                                "je vais prendre un {drink}",
+                                "je veux un {drink} {teaType}",
+                                "je veux un {drink} {coffeeRoast}",
+                                "un {drink} s'il vous plait"
+                            ]
+                        },
+                        {
+                            "name": "coffeeRoast",
+                            "type": "Coffee_Roast_Type"
+                        },
+                        {
+                            "name": "teaType",
+                            "type": "Tea_Type"
+                        }
+                    ],
+                    "samples": [
+                        "un {drink} {coffeeRoast}",
+                        "un {coffeeRoast} s'il vous plait",
+                        "un {drink} {teaType}",
+                        "je veux un {drink}",
+                        "je veux boire un {drink} {coffeeRoast}",
+                        "j'ai soif"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Tea_Type",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "pomme"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "darjeeling"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vert"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Coffee_Roast_Type",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "cappuccino"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "latte",
+                                "synonyms": [
+                                    "au lait"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "allongé",
+                                "synonyms": [
+                                    "americano"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "filtre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "court",
+                                "synonyms": [
+                                    "expresso"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "noisette",
+                                "synonyms": [
+                                    "macchiato"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Drink_Type",
+                    "values": [
+                        {
+                            "id": "coffee",
+                            "name": {
+                                "value": "café"
+                            }
+                        },
+                        {
+                            "id": "tea",
+                            "name": {
+                                "value": "thé"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "TravelIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.308187721440"
+                    },
+                    "slots": [
+                        {
+                            "name": "destination",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.308187721440.161892165705"
+                            }
+                        },
+                        {
+                            "name": "origin",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.308187721440.888071638373"
+                            }
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.308187721440.220341848079"
+                            }
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "OrderIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "drink",
+                            "type": "Drink_Type",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1427915698940.980268361869"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.958455696445.1271421554858.1175826359431"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "coffeeRoast",
+                            "type": "Coffee_Roast_Type",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "teaType",
+                            "type": "Tea_Type",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.226916429834.431454440878",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle est votre ville de départ ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Vous partez d'où ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "D'où partez-vous ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.226916429834.115822908089",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle est votre ville d'arrivée ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle est votre destination ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Où allez-vous ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.226916429834.275343292580",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Votre voyage est prévu pour quand ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quel jour partez-vous ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quand partez-vous ?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.226916429834.431454440878.1034840379400",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Désolé, je ne propose pas de voyage au départ de {origin}. Quelle est votre ville de départ ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.204627098593",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Vous voyagez bien de {origin} pour aller à {destination}  {date} est-ce correct?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.308187721440.888071638373",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "D'où partez-vous ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Vous partez d'où ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle est votre ville de départ ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.308187721440.161892165705",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Où allez-vous ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle est votre destination ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle est votre ville d'arrivée ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.308187721440.220341848079",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quand partez-vous ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quel jour partez-vous ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Votre voyage est prévu pour quand ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1427915698940.980268361869",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Je peux vous proposer un thé ou un café. Laquelle des deux boissons voulez-vous boire ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Quelle boisson voulez-vous boire un thé ou un café ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Voulez-vous un thé ou un café ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.308187721440",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Vous voyagez bien de {origin} pour aller à {destination} le {date} est-ce correct?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.958455696445.1271421554858.1175826359431",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Je n'ai pas de {drink} en stock. Voulez-vous plutôt un café ou bien un thé ?"
+                    }
+                ]
+            }
+        ]
+    }
+}
